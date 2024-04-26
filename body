@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $# -ge 1 ] ; then
+    if echo $1 | grep '\s*[0-9]\+\s*,\s*[0-9]\+\s*' > /dev/null ; then
+        range="$1"
+        shift
+    fi
+fi
+
+sed -n "${range}p" "$@"
